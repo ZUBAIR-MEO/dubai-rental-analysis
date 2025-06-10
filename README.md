@@ -46,12 +46,8 @@ Regional comparisons within Dubai
 
 Additionally, a Streamlit dashboard is available for interactive web-based visualization, including predictive modeling of rental prices.
 
-*📁 Project Structure*
-bash
-Copy
-Edit
-Final-project-BI-EUBS/
-│
+#📁 Project Structure
+
 ├── dubai_rental_analysis/
 │   ├── dubai_rental_data_pipeline.py     # Main ETL script (extract, transform, load) with email alert integration
 │   ├── run_dubai_etl.bat                  # Batch file to run ETL script (used by Task Scheduler)
