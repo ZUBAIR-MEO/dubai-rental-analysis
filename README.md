@@ -49,22 +49,6 @@ Additionally, a Streamlit dashboard is available for interactive web-based visua
 #📁 Project Structure:
 ![image](https://github.com/user-attachments/assets/9f245c5d-7614-45f2-96c4-df60987fd6b8)
 
-├── dubai_rental_analysis/
-│   ├── dubai_rental_data_pipeline.py     # Main ETL script (extract, transform, load) with email alert integration
-│   ├── run_dubai_etl.bat                  # Batch file to run ETL script (used by Task Scheduler)
-│   ├── data/
-│   │   ├── rents-2025-05-30.csv          # Raw rental data CSV
-│   │   └── Dubai_rents_May_2025_cleaned.csv  # Cleaned data CSV
-│   ├── sql/
-│   │   └── create_tables.sql             # PostgreSQL schema creation script
-│
-├── powerbi_dashboard/
-│   └── dubai_rent_dashboard.pbix         # Power BI desktop dashboard file (optional)
-│
-├── .env                                   # Configuration file for environment variables
-├── requirements.txt                       # Python dependencies
-└── README.md
-
 
 ⚙️ Technologies Used:
 
@@ -81,26 +65,11 @@ Streamlit (interactive dashboard & predictive modeling)
 SMTP (Gmail) for Email Notifications
 
 🔐 Environment Configuration (.env)
-ini
-Copy
-Edit
-# PostgreSQL Database
-DB_USER=postgres
-DB_PASSWORD=your_password
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=postgres
+![image](https://github.com/user-attachments/assets/a5bdba2d-cd00-4968-acc9-5ddb511f4013)
 
-# Email Notifications
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_SENDER=your_email@gmail.com
-EMAIL_RECEIVER=receiver@example.com
-EMAIL_PASSWORD=your_app_password
 
-# File Paths
-DATA_FILE_PATH=./Dubai_rents_May_2025_cleaned.csv
-📧 Email Notification System
+
+**📧 Email Notification System**
 The main ETL script (dubai_rental_data_pipeline.py) includes a custom send_email_alert() function that:
 
 Sends email notifications upon successful or failed pipeline execution.
