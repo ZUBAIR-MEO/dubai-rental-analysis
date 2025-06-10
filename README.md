@@ -1,6 +1,9 @@
 # DUBAI RENTAL ANALYSIS ETL PIPELINE
 This project demonstrates a complete end-to-end ETL (Extract, Transform, Load) pipeline designed to collect, clean, store, and visualize real estate rental data in Dubai. It leverages open-source tools such as PostgreSQL, Python, Power BI, and Streamlit to provide actionable insights into Dubai's rental market.
 
+https://www.mermaidchart.com/app/projects/c6ee6b2e-ca0c-4523-89e3-5fd51ac814fc/diagrams/26c1cd36-d697-47c0-a733-08cd3c961318/version/v0.1/edit
+
+
 # 🛠️ Project Overview
 The ETL pipeline performs the following tasks:
 
