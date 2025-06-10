@@ -52,7 +52,7 @@ with st.form("prediction_form"):
         nearest_metro = st.selectbox("Nearest Metro", ["Burj Khalifa", "Dubai Mall", "Business Bay", "Palm Jumeirah"])
         nearest_mall = st.selectbox("Nearest Mall", ["Dubai Mall", "Mall of Emirates", "City Walk"])
         nearest_landmark = st.selectbox("Nearest Landmark", ["Burj Khalifa", "Palm Jumeirah", "Dubai Marina"])
-        actual_area = st.number_input("Area (sqft)", min_value=300, max_value=10000, value=1200)
+        actual_area = st.number_input("Area (sq. ft.)", min_value=300, max_value=10000, value=1200, step=50)
         rooms = st.number_input("Rooms", min_value=0, max_value=10, value=2)
         parking = st.number_input("Parking Spaces", min_value=0, max_value=5, value=1)
     
