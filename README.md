@@ -28,14 +28,14 @@ Triggers daily execution of the pipeline
 
 Runs automatically without user intervention
 
-*Email Notifications*
+# Email Notification
 Python-based email alert system:
 
 Sends success/failure notifications using Gmail SMTP with SSL
 
 Reads credentials securely from the .env configuration file
 
-*Data Visualization*
+# Data visualisation
 Power BI online dashboard offers deep insights into:
 
 Pricing trends
@@ -111,7 +111,7 @@ Reads all credentials securely from the .env file.
 
 Provides timely updates without manual monitoring.
 
-⏰ Task Automation with Windows Task Scheduler
+#⏰ Task Automation (Windows task Scheduler):
 The ETL pipeline is automated via Windows Task Scheduler by running the included batch file run_dubai_etl.bat. This batch file executes the ETL Python script with the proper environment setup.
 
 Example command to create the scheduled task (run in Command Prompt):
