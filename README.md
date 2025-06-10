@@ -82,6 +82,7 @@ _
 using corn job for  8 pm todat:
 
 ![image](https://github.com/user-attachments/assets/5ddc0f7a-b000-49f0-b3eb-48362870fb28)
+![image](https://github.com/user-attachments/assets/8d4d4d67-9a3d-43d6-9289-4315b5e1bb85)
 
 
 # 📊 Dashboard Insights
