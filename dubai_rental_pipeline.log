@@ -1,0 +1,771 @@
+2025-06-10 01:50:51,250 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 01:50:51,651 - INFO - Initial data preview:
+2025-06-10 01:50:51,652 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE VERSION_EN  ... PARKING  TOTAL_PROPERTIES  MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00        New  ...     NaN                 1                NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00    Renewed  ...     NaN                 1                NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00        New  ...     NaN                 1                NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00        New  ...     NaN                 1                NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00        New  ...     NaN                 1                NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 01:50:51,719 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 01:50:53,391 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 01:50:53,392 - INFO - 
+Missing values after cleaning:
+2025-06-10 01:50:53,459 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 01:50:54,493 - INFO - Model evaluation metrics:
+2025-06-10 01:50:54,494 - INFO - RMSE: 1405713.75
+2025-06-10 01:50:54,494 - INFO - R2 Score: -0.00
+2025-06-10 01:50:54,502 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 01:50:54,941 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 01:50:55,316 - INFO - Total records to import: 90574
+2025-06-10 01:52:10,495 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 01:52:11,815 - INFO - ✅ Alert email sent successfully.
+2025-06-10 01:52:11,928 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 01:58:05,520 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 01:58:05,906 - INFO - Initial data preview:
+2025-06-10 01:58:05,906 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 01:58:05,964 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 01:58:07,448 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 01:58:07,448 - INFO - 
+Missing values after cleaning:
+2025-06-10 01:58:07,514 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 01:58:08,535 - INFO - Model evaluation metrics:
+2025-06-10 01:58:08,536 - INFO - RMSE: 1405713.75
+2025-06-10 01:58:08,538 - INFO - R2 Score: -0.00
+2025-06-10 01:58:08,545 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 01:58:08,912 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 01:58:09,235 - INFO - Total records to import: 90574
+2025-06-10 01:59:09,268 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 01:59:10,409 - INFO - ✅ Alert email sent successfully.
+2025-06-10 01:59:10,457 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 02:24:56,398 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 02:24:56,884 - INFO - Initial data preview:
+2025-06-10 02:24:56,885 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 02:24:56,957 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 02:24:58,491 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 02:24:58,492 - INFO - 
+Missing values after cleaning:
+2025-06-10 02:24:58,558 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 02:24:59,620 - INFO - Model evaluation metrics:
+2025-06-10 02:24:59,621 - INFO - RMSE: 1405713.75
+2025-06-10 02:24:59,621 - INFO - R2 Score: -0.00
+2025-06-10 02:24:59,627 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 02:25:00,023 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 02:25:00,354 - INFO - Total records to import: 90574
+2025-06-10 02:25:22,045 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 02:25:22,676 - INFO - Initial data preview:
+2025-06-10 02:25:22,677 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 02:25:22,741 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 02:25:24,475 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 02:25:24,475 - INFO - 
+Missing values after cleaning:
+2025-06-10 02:25:24,547 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 02:25:26,134 - INFO - Model evaluation metrics:
+2025-06-10 02:25:26,138 - INFO - RMSE: 1405713.75
+2025-06-10 02:25:26,138 - INFO - R2 Score: -0.00
+2025-06-10 02:25:26,150 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 02:25:26,796 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 02:25:27,250 - INFO - Total records to import: 90574
+2025-06-10 02:26:24,552 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 02:26:34,169 - INFO - Initial data preview:
+2025-06-10 02:26:34,174 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 02:26:34,448 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 02:26:37,941 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 02:26:38,897 - INFO - 
+Missing values after cleaning:
+2025-06-10 02:26:40,123 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 02:26:50,390 - INFO - Model evaluation metrics:
+2025-06-10 02:26:50,392 - INFO - RMSE: 1405713.75
+2025-06-10 02:26:50,394 - INFO - R2 Score: -0.00
+2025-06-10 02:26:50,488 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 02:26:52,228 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 02:26:53,101 - INFO - Total records to import: 90574
+2025-06-10 02:26:54,696 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 02:26:55,697 - INFO - Initial data preview:
+2025-06-10 02:26:55,699 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 02:26:55,756 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 02:26:55,805 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 02:26:57,095 - INFO - ✅ Alert email sent successfully.
+2025-06-10 02:26:57,204 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 02:26:57,833 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 02:26:57,833 - INFO - 
+Missing values after cleaning:
+2025-06-10 02:26:57,917 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 02:26:59,275 - INFO - Model evaluation metrics:
+2025-06-10 02:26:59,276 - INFO - RMSE: 1405713.75
+2025-06-10 02:26:59,276 - INFO - R2 Score: -0.00
+2025-06-10 02:26:59,285 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 02:26:59,784 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 02:27:00,224 - INFO - Total records to import: 90574
+2025-06-10 02:27:30,521 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 02:27:31,097 - INFO - Initial data preview:
+2025-06-10 02:27:31,099 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 02:27:31,196 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 02:27:33,131 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 02:27:33,131 - INFO - 
+Missing values after cleaning:
+2025-06-10 02:27:33,223 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 02:27:34,628 - INFO - Model evaluation metrics:
+2025-06-10 02:27:34,628 - INFO - RMSE: 1405713.75
+2025-06-10 02:27:34,629 - INFO - R2 Score: -0.00
+2025-06-10 02:27:34,637 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 02:27:35,185 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 02:27:35,644 - INFO - Total records to import: 90574
+2025-06-10 02:28:22,536 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 02:28:24,035 - INFO - ✅ Alert email sent successfully.
+2025-06-10 02:28:24,207 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 02:29:53,777 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 02:29:56,064 - INFO - ✅ Alert email sent successfully.
+2025-06-10 02:29:56,221 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 02:31:24,896 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 02:31:26,243 - INFO - ✅ Alert email sent successfully.
+2025-06-10 02:31:26,384 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 02:32:49,745 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 02:32:51,264 - INFO - ✅ Alert email sent successfully.
+2025-06-10 02:32:51,391 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 02:48:12,706 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 02:48:13,159 - INFO - Initial data preview:
+2025-06-10 02:48:13,160 - INFO -   REGISTRATION_DATE       START_DATE  ... MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  ...               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  ...               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  ...               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  ...               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  ...               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 02:48:13,220 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 02:48:14,746 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 02:48:14,746 - INFO - 
+Missing values after cleaning:
+2025-06-10 02:48:14,815 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 02:48:15,874 - INFO - Model evaluation metrics:
+2025-06-10 02:48:15,874 - INFO - RMSE: 1405713.75
+2025-06-10 02:48:15,874 - INFO - R2 Score: -0.00
+2025-06-10 02:48:15,882 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 02:48:16,294 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 02:48:16,638 - INFO - Total records to import: 90574
+2025-06-10 02:49:27,882 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 02:49:28,734 - INFO - ✅ Alert email sent successfully.
+2025-06-10 02:49:28,827 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 02:50:30,192 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 02:50:30,861 - INFO - Initial data preview:
+2025-06-10 02:50:30,861 - INFO -   REGISTRATION_DATE       START_DATE  ... MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  ...               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  ...               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  ...               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  ...               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  ...               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 02:50:30,924 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 02:50:32,528 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 02:50:32,528 - INFO - 
+Missing values after cleaning:
+2025-06-10 02:50:32,595 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 02:50:33,753 - INFO - Model evaluation metrics:
+2025-06-10 02:50:33,753 - INFO - RMSE: 1405713.75
+2025-06-10 02:50:33,754 - INFO - R2 Score: -0.00
+2025-06-10 02:50:33,760 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 02:50:34,283 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 02:50:34,645 - INFO - Total records to import: 90574
+2025-06-10 02:51:40,821 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 02:51:41,969 - INFO - ✅ Alert email sent successfully.
+2025-06-10 02:51:42,060 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 02:53:23,619 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 02:53:24,029 - INFO - Initial data preview:
+2025-06-10 02:53:24,029 - INFO -   REGISTRATION_DATE       START_DATE  ... MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  ...               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  ...               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  ...               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  ...               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  ...               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 02:53:24,092 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 02:53:25,634 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 02:53:25,635 - INFO - 
+Missing values after cleaning:
+2025-06-10 02:53:25,698 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 02:53:26,770 - INFO - Model evaluation metrics:
+2025-06-10 02:53:26,771 - INFO - RMSE: 1405713.75
+2025-06-10 02:53:26,771 - INFO - R2 Score: -0.00
+2025-06-10 02:53:26,777 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 02:53:27,169 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 02:53:27,526 - INFO - Total records to import: 90574
+2025-06-10 02:56:51,059 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 02:56:51,448 - INFO - Initial data preview:
+2025-06-10 02:56:51,448 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 02:56:51,501 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 02:56:52,983 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 02:56:52,983 - INFO - 
+Missing values after cleaning:
+2025-06-10 02:56:53,051 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 02:56:54,068 - INFO - Model evaluation metrics:
+2025-06-10 02:56:54,069 - INFO - RMSE: 1405713.75
+2025-06-10 02:56:54,072 - INFO - R2 Score: -0.00
+2025-06-10 02:56:54,078 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 02:56:54,409 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 02:56:54,735 - INFO - Total records to import: 90574
+2025-06-10 02:57:55,167 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 02:57:56,326 - INFO - ✅ Alert email sent successfully.
+2025-06-10 02:57:56,422 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 03:02:30,529 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 03:02:31,115 - INFO - Initial data preview:
+2025-06-10 03:02:31,115 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 03:02:31,174 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 03:02:32,762 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 03:02:32,763 - INFO - 
+Missing values after cleaning:
+2025-06-10 03:02:32,830 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 03:02:34,221 - INFO - Model evaluation metrics:
+2025-06-10 03:02:34,223 - INFO - RMSE: 1405713.75
+2025-06-10 03:02:34,224 - INFO - R2 Score: -0.00
+2025-06-10 03:02:34,233 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 03:02:34,837 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 03:02:35,327 - INFO - Total records to import: 90574
+2025-06-10 03:03:49,425 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 03:03:51,203 - INFO - Initial data preview:
+2025-06-10 03:03:51,209 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 03:03:51,551 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 03:03:53,518 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 03:03:53,520 - INFO - 
+Missing values after cleaning:
+2025-06-10 03:03:53,603 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 03:03:56,066 - INFO - Model evaluation metrics:
+2025-06-10 03:03:56,068 - INFO - RMSE: 1405713.75
+2025-06-10 03:03:56,069 - INFO - R2 Score: -0.00
+2025-06-10 03:03:56,108 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 03:03:57,170 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 03:03:57,912 - INFO - Total records to import: 90574
+2025-06-10 03:04:25,855 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 03:04:26,977 - INFO - ✅ Alert email sent successfully.
+2025-06-10 03:04:27,120 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 03:04:35,187 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 03:04:35,656 - INFO - Initial data preview:
+2025-06-10 03:04:35,657 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 03:04:35,713 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 03:04:37,237 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 03:04:37,238 - INFO - 
+Missing values after cleaning:
+2025-06-10 03:04:37,302 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 03:04:38,378 - INFO - Model evaluation metrics:
+2025-06-10 03:04:38,378 - INFO - RMSE: 1405713.75
+2025-06-10 03:04:38,379 - INFO - R2 Score: -0.00
+2025-06-10 03:04:38,386 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 03:04:38,814 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 03:04:39,168 - INFO - Total records to import: 90574
+2025-06-10 03:05:29,905 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 03:05:30,393 - INFO - Initial data preview:
+2025-06-10 03:05:30,393 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 03:05:30,463 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 03:05:32,313 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 03:05:32,313 - INFO - 
+Missing values after cleaning:
+2025-06-10 03:05:32,401 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 03:05:33,926 - INFO - Model evaluation metrics:
+2025-06-10 03:05:33,926 - INFO - RMSE: 1405713.75
+2025-06-10 03:05:33,927 - INFO - R2 Score: -0.00
+2025-06-10 03:05:33,936 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 03:05:34,448 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 03:05:34,906 - INFO - Total records to import: 90574
+2025-06-10 03:05:39,316 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 03:05:40,659 - INFO - ✅ Alert email sent successfully.
+2025-06-10 03:05:40,742 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 03:06:47,912 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 03:06:49,515 - INFO - ✅ Alert email sent successfully.
+2025-06-10 03:06:49,600 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 03:07:52,575 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 03:07:53,880 - INFO - ✅ Alert email sent successfully.
+2025-06-10 03:07:53,916 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 03:10:44,558 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 03:10:45,654 - INFO - Initial data preview:
+2025-06-10 03:10:45,657 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 03:10:45,756 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 03:10:47,881 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 03:10:47,882 - INFO - 
+Missing values after cleaning:
+2025-06-10 03:10:47,959 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 03:10:50,458 - INFO - Model evaluation metrics:
+2025-06-10 03:10:50,459 - INFO - RMSE: 1405713.75
+2025-06-10 03:10:50,461 - INFO - R2 Score: -0.00
+2025-06-10 03:10:50,471 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 03:10:51,730 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 03:10:52,827 - INFO - Total records to import: 90574
+2025-06-10 03:13:03,043 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 03:13:04,605 - INFO - ✅ Alert email sent successfully.
+2025-06-10 03:13:04,741 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 03:39:30,606 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 03:39:31,157 - INFO - Initial data preview:
+2025-06-10 03:39:31,158 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 03:39:31,242 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 03:39:32,885 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 03:39:32,885 - INFO - 
+Missing values after cleaning:
+2025-06-10 03:39:32,952 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 03:39:34,144 - INFO - Model evaluation metrics:
+2025-06-10 03:39:34,145 - INFO - RMSE: 1405713.75
+2025-06-10 03:39:34,145 - INFO - R2 Score: -0.00
+2025-06-10 03:39:34,152 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 03:39:34,694 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 03:39:35,119 - INFO - Total records to import: 90574
+2025-06-10 03:40:51,390 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 03:40:52,750 - INFO - ✅ Alert email sent successfully.
+2025-06-10 03:40:52,825 - INFO - ✅ Pipeline completed successfully!
+2025-06-10 03:50:31,523 - INFO - Starting Dubai rental data pipeline...
+2025-06-10 03:50:32,121 - INFO - Initial data preview:
+2025-06-10 03:50:32,122 - INFO -   REGISTRATION_DATE       START_DATE         END_DATE  ... TOTAL_PROPERTIES MASTER_PROJECT_EN    PROJECT_EN
+0   01/05/2025 0:03  05/05/2025 0:00  04/05/2026 0:00  ...                1               NaN        MOSELA
+1   01/05/2025 0:09  15/03/2025 0:00  14/03/2026 0:00  ...                1               NaN           NaN
+2   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN  TOWN CENTRAL
+3   01/05/2025 0:09  15/05/2025 0:00  14/05/2026 0:00  ...                1               NaN      CELESTIA
+4   01/05/2025 0:13  15/02/2025 0:00  14/02/2026 0:00  ...                1               NaN         RITAJ
+
+[5 rows x 20 columns]
+2025-06-10 03:50:32,189 - INFO - 
+Removing specific columns: ['TOTAL_PROPERTIES', 'START_DATE', 'END_DATE']
+2025-06-10 03:50:33,783 - INFO - 
+Cleaned data saved to: Dubai_rents_May_2025_cleaned.csv
+2025-06-10 03:50:33,783 - INFO - 
+Missing values after cleaning:
+2025-06-10 03:50:33,857 - INFO - REGISTRATION_DATE          0
+VERSION_EN                 0
+AREA_EN                    0
+CONTRACT_AMOUNT            0
+ANNUAL_AMOUNT              0
+IS_FREE_HOLD_EN            0
+ACTUAL_AREA              460
+PROP_TYPE_EN               0
+PROP_SUB_TYPE_EN         307
+ROOMS                  87254
+USAGE_EN                 333
+NEAREST_METRO_EN       13611
+NEAREST_MALL_EN        14584
+NEAREST_LANDMARK_EN     7181
+PARKING                88682
+MASTER_PROJECT_EN      90551
+PROJECT_EN             66667
+dtype: int64
+2025-06-10 03:50:35,168 - INFO - Model evaluation metrics:
+2025-06-10 03:50:35,169 - INFO - RMSE: 1405713.75
+2025-06-10 03:50:35,169 - INFO - R2 Score: -0.00
+2025-06-10 03:50:35,177 - INFO - Model saved to models\rental_price_predictor.pkl
+2025-06-10 03:50:35,806 - INFO - ✅ PostgreSQL connection successful!
+2025-06-10 03:50:36,163 - INFO - Total records to import: 90574
+2025-06-10 03:52:20,655 - INFO - ✅ Successfully imported 90574 records to PostgreSQL!
+2025-06-10 03:52:21,905 - INFO - ✅ Alert email sent successfully.
+2025-06-10 03:52:22,104 - INFO - ✅ Pipeline completed successfully!
