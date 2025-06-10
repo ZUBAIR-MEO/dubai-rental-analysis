@@ -9,43 +9,29 @@ Raw rental data is sourced from an open dataset (CSV format) containing listings
 
 *Data Cleaning & Transformation*
 Implemented within the single ETL script dubai_rental_data_pipeline.py using Python and Pandas to:
-
-Extract data from CSV
-
-Remove duplicates
-
-Handle missing values
-
-Filter and standardize column values
+- Extract data from CSV
+- Remove duplicates
+- Handle missing values
+- Filter and standardize column values
 
 **Data Storage**
-Cleaned data is stored in a PostgreSQL database with a well-defined schema.
+-  data is stored in a PostgreSQL database with a well-defined schema.
 
 *Workflow Scheduling*
 The entire ETL process is automated with Windows Task Scheduler running a .bat file included in the repository:
-
-Triggers daily execution of the pipeline
-
-Runs automatically without user intervention
+- Triggers daily execution of the pipeline
+- Runs automatically without user intervention
 
 #  Email Notification:
-
 Python-based email alert system:
-
-Sends success/failure notifications using Gmail SMTP with SSL
-
-Reads credentials securely from the .env configuration file
-
+- Sends success/failure notifications using Gmail SMTP with SSL
+- Reads credentials securely from the .env configuration file
 
 #  Data visualisation:
-
 Power BI online dashboard offers deep insights into:
-
-Pricing trends
-
-Property types
-
-Regional comparisons within Dubai
+- Pricing trends
+- Property types
+- Regional comparisons within Dubai
 
 Additionally, a Streamlit dashboard is available for interactive web-based visualization, including predictive modeling of rental prices.
 
@@ -56,34 +42,24 @@ Additionally, a Streamlit dashboard is available for interactive web-based visua
 
 # ⚙️ Technologies used:
 
-Python (Pandas, psycopg2, dotenv)
-
-PostgreSQL
-
-Windows Task Scheduler
-
-Power BI (desktop & online)
-
-Streamlit (interactive dashboard & predictive modeling)
-
-SMTP (Gmail) for Email Notifications
+> Python (Pandas, psycopg2, dotenv)
+> PostgreSQL
+> Windows Task Scheduler
+> Power BI (desktop & online)
+> Streamlit (interactive dashboard & predictive modeling)
+> SMTP (Gmail) for Email Notifications
 
 # 🔐 Environment Configuration (.env)
 ![image](https://github.com/user-attachments/assets/a5bdba2d-cd00-4968-acc9-5ddb511f4013)
 
 
-
 # 📧 Email Notification System
-
 The main ETL script (dubai_rental_data_pipeline.py) includes a custom send_email_alert() function that:
 
-Sends email notifications upon successful or failed pipeline execution.
-
-Utilizes Gmail SMTP over SSL (port 465).
-
-Reads all credentials securely from the .env file.
-
-Provides timely updates without manual monitoring.
+- Sends email notifications upon successful or failed pipeline execution.
+- Utilizes Gmail SMTP over SSL (port 465).
+- Reads all credentials securely from the .env file.
+- Provides timely updates without manual monitoring.
 
 # ⏰ Task Automation (Windows task Scheduler):
 
