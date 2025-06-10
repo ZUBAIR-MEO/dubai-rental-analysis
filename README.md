@@ -3,7 +3,8 @@ This project demonstrates a complete end-to-end ETL (Extract, Transform, Load) p
 
 # 🛠️ PROJECT OVERVIEW
 
-![Editor _ Mermaid Chart-2025-06-10-051731](https://github.com/user-attachments/assets/c881e60e-0a2c-4f01-bd16-740665f9c6e0)
+![Editor _ Mermaid Chart-2025-06-10-052327](https://github.com/user-attachments/assets/e8df6479-c644-4d33-9dd6-4f8095b18b34)
+
 
 
 
