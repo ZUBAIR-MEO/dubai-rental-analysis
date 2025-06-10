@@ -29,13 +29,16 @@ Triggers daily execution of the pipeline
 Runs automatically without user intervention
 
 # Email Notification:
+
 Python-based email alert system:
 
 Sends success/failure notifications using Gmail SMTP with SSL
 
 Reads credentials securely from the .env configuration file
 
+
 # Data visualisation:
+
 Power BI online dashboard offers deep insights into:
 
 Pricing trends
@@ -46,11 +49,12 @@ Regional comparisons within Dubai
 
 Additionally, a Streamlit dashboard is available for interactive web-based visualization, including predictive modeling of rental prices.
 
+
 #📁 Project Structure:
 ![image](https://github.com/user-attachments/assets/9f245c5d-7614-45f2-96c4-df60987fd6b8)
 
 
-⚙️ Technologies Used:
+**#⚙️ Technologies used:**
 
 Python (Pandas, psycopg2, dotenv)
 
@@ -70,6 +74,7 @@ SMTP (Gmail) for Email Notifications
 
 
 **📧 Email Notification System**
+
 The main ETL script (dubai_rental_data_pipeline.py) includes a custom send_email_alert() function that:
 
 Sends email notifications upon successful or failed pipeline execution.
@@ -80,24 +85,18 @@ Reads all credentials securely from the .env file.
 
 Provides timely updates without manual monitoring.
 
-#⏰ Task Automation (Windows task Scheduler):
+**#⏰ Task Automation (Windows task Scheduler):**
+
 The ETL pipeline is automated via Windows Task Scheduler by running the included batch file run_dubai_etl.bat. This batch file executes the ETL Python script with the proper environment setup.
 
-Example command to create the scheduled task (run in Command Prompt):
+_Example command to create the scheduled task (run in Command Prompt):_
 
-cmd
-Copy
-Edit
-C:\Users\mzuba> schtasks /create /tn "RunDubaiETL" /tr "C:\Users\mzuba\Desktop\Final-project-BI-EUBS\dubai_rental_analysis\run_dubai_etl.bat" /sc daily /st 04:30
+"C:\Users\mzuba> schtasks /create /tn "RunDubaiETL" /tr "C:\Users\mzuba\Desktop\Final-project-BI-EUBS\dubai_rental_analysis\run_dubai_etl.bat" /sc daily /st 03:00"
 
-SUCCESS: The scheduled task "RunDubaiETL" has successfully been created.
-Make sure that:
+_SUCCESS: The scheduled task "RunDubaiETL" has successfully been created.
+_
 
-The .bat file path is correct.
-
-The .env file and dependencies are properly configured.
-
-📊 Dashboard Insights
+**#📊 Dashboard Insights**
 Average rental prices by property type
 
 Trends in price per square foot
