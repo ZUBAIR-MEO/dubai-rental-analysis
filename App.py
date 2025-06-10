@@ -1,5 +1,67 @@
-# Update the feature importance section in the prediction block:
+# app.py
+import streamlit as st
+import pandas as pd
+import joblib
+import os
 
+# Load the trained model and metrics
+MODEL_PATH = 'rental_price_predictor.pkl'
+METRICS_PATH = 'model_metrics.pkl'
+
+@st.cache_resource
+def load_model():
+    """Load the trained model and metrics"""
+    if not os.path.exists(MODEL_PATH):
+        st.error("Model file not found. Please ensure rental_price_predictor.pkl is in the main directory.")
+        return None, None
+    if not os.path.exists(METRICS_PATH):
+        st.error("Metrics file not found. Please ensure model_metrics.pkl is in the main directory.")
+        return None, None
+    
+    model = joblib.load(MODEL_PATH)
+    metrics = joblib.load(METRICS_PATH)
+    return model, metrics
+
+model, metrics = load_model()
+
+# App title and description
+st.title("🏙️ Dubai Rental Price Predictor")
+st.markdown("""
+Predict annual rental prices based on property characteristics.
+The model was trained on Dubai rental data with the following performance:
+""")
+
+# Show model metrics if available
+if metrics:
+    col1, col2 = st.columns(2)
+    col1.metric("R² Score", f"{metrics['r2']:.2f}")
+    col2.metric("RMSE", f"AED {metrics['rmse']:,.2f}")
+
+# Input form
+with st.form("prediction_form"):
+    st.header("Property Details")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        version = st.selectbox("Version", ["New", "Secondary", "Under Construction"])
+        area = st.selectbox("Area", ["Downtown", "Palm Jumeirah", "Jumeirah", "Business Bay"])
+        is_freehold = st.selectbox("Freehold", ["Yes", "No"])
+        prop_type = st.selectbox("Property Type", ["Apartment", "Villa", "Townhouse"])
+        prop_sub_type = st.selectbox("Property Sub-Type", ["Standard", "Deluxe", "Penthouse", "Studio"])
+    
+    with col2:
+        usage = st.selectbox("Usage", ["Residential", "Commercial", "Mixed"])
+        nearest_metro = st.selectbox("Nearest Metro", ["Burj Khalifa", "Dubai Mall", "Business Bay", "Palm Jumeirah"])
+        nearest_mall = st.selectbox("Nearest Mall", ["Dubai Mall", "Mall of Emirates", "City Walk"])
+        nearest_landmark = st.selectbox("Nearest Landmark", ["Burj Khalifa", "Palm Jumeirah", "Dubai Marina"])
+        actual_area = st.number_input("Area (sq. ft.)", min_value=300, max_value=10000, value=1200, step=50)
+        rooms = st.number_input("Rooms", min_value=0, max_value=10, value=2)
+        parking = st.number_input("Parking Spaces", min_value=0, max_value=5, value=1)
+    
+    submitted = st.form_submit_button("Predict Price")
+
+# Make prediction when form is submitted
 if submitted and model:
     input_data = pd.DataFrame({
         'VERSION_EN': [version],
@@ -26,13 +88,12 @@ if submitted and model:
             st.subheader("Feature Importance")
             try:
                 # Get numerical feature names
-                num_features = list(input_data.columns[9:])  # ACTUAL_AREA, ROOMS, PARKING
+                num_features = ['ACTUAL_AREA', 'ROOMS', 'PARKING']
                 
                 # Get categorical feature names after one-hot encoding
                 preprocessor = model.named_steps['preprocessor']
                 cat_features = []
                 
-                # Handle categorical features if they exist
                 if 'cat' in preprocessor.named_transformers_:
                     ohe = preprocessor.named_transformers_['cat'].named_steps['onehot']
                     cat_features = ohe.get_feature_names_out(input_data.columns[:9])
@@ -53,6 +114,34 @@ if submitted and model:
                 
             except Exception as e:
                 st.warning(f"Could not display feature importance: {str(e)}")
+        elif hasattr(model.named_steps['regressor'], 'coef_'):
+            st.warning("Feature coefficients available but visualization not implemented for linear models")
                 
     except Exception as e:
         st.error(f"Prediction failed: {str(e)}")
+
+# Add data exploration section
+if metrics and st.checkbox("Show sample data"):
+    st.subheader("Sample Data Distribution")
+    
+    # Load sample data
+    try:
+        sample_data = pd.read_csv('Dubai_rents_May_2025_cleaned.csv')
+        st.dataframe(sample_data.sample(5))
+        
+        col1, col2 = st.columns(2)
+        with col1:
+            st.metric("Total Properties", len(sample_data))
+            st.metric("Average Annual Price", f"AED {sample_data['ANNUAL_AMOUNT'].mean():,.2f}")
+        with col2:
+            st.metric("Most Common Area", sample_data['AREA_EN'].mode()[0])
+            st.metric("Most Common Property Type", sample_data['PROP_TYPE_EN'].mode()[0])
+    except Exception as e:
+        st.warning(f"Could not load sample data: {str(e)}")
+
+# Add footer
+st.markdown("---")
+st.markdown("""
+**Note**: This application uses a machine learning model trained on historical data.
+Actual prices may vary based on market conditions and property specifics.
+""")
