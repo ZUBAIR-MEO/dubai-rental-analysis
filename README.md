@@ -18,7 +18,7 @@ Handle missing values
 
 Filter and standardize column values
 
-Data Storage
+**Data Storage**
 Cleaned data is stored in a PostgreSQL database with a well-defined schema.
 
 *Workflow Scheduling*
@@ -28,14 +28,14 @@ Triggers daily execution of the pipeline
 
 Runs automatically without user intervention
 
-# Email Notification
+# Email Notification:
 Python-based email alert system:
 
 Sends success/failure notifications using Gmail SMTP with SSL
 
 Reads credentials securely from the .env configuration file
 
-# Data visualisation
+# Data visualisation:
 Power BI online dashboard offers deep insights into:
 
 Pricing trends
@@ -46,7 +46,8 @@ Regional comparisons within Dubai
 
 Additionally, a Streamlit dashboard is available for interactive web-based visualization, including predictive modeling of rental prices.
 
-#📁 Project Structure
+#📁 Project Structure:
+![image](https://github.com/user-attachments/assets/9f245c5d-7614-45f2-96c4-df60987fd6b8)
 
 ├── dubai_rental_analysis/
 │   ├── dubai_rental_data_pipeline.py     # Main ETL script (extract, transform, load) with email alert integration
@@ -63,7 +64,10 @@ Additionally, a Streamlit dashboard is available for interactive web-based visua
 ├── .env                                   # Configuration file for environment variables
 ├── requirements.txt                       # Python dependencies
 └── README.md
-⚙️ Technologies Used
+
+
+⚙️ Technologies Used:
+
 Python (Pandas, psycopg2, dotenv)
 
 PostgreSQL
