@@ -96,11 +96,18 @@ def clean_data():
         raise
 
 def train_rental_model(data_path):
-    """Train and save a linear regression model for rental price prediction."""
+    """Train and save a linear regression model for rental price prediction using specified features."""
     try:
         df = pd.read_csv(data_path)
-        
-        # Identify features and target based on your columns
+
+        # Fill missing categorical fields that model expects with "Not Specified"
+        for col in ['NEAREST_METRO_EN', 'NEAREST_MALL_EN', 'NEAREST_LANDMARK_EN']:
+            if col not in df.columns:
+                df[col] = "Not Specified"
+            else:
+                df[col] = df[col].fillna("Not Specified")
+
+        # Ensure no missing in categorical features used
         categorical_features = [
             'VERSION_EN', 
             'AREA_EN', 
@@ -113,78 +120,73 @@ def train_rental_model(data_path):
             'NEAREST_LANDMARK_EN'
         ]
         
-        numerical_features = [
-            'ACTUAL_AREA',
-            'ROOMS',
-            'PARKING'
-        ]
-        
-        # Target variable
+        numerical_features = ['ACTUAL_AREA']
+
         target = 'ANNUAL_AMOUNT'
-        
+
+        # Drop rows with missing target
+        df = df.dropna(subset=[target])
+
+        # Select features and target
+        X = df[categorical_features + numerical_features]
+        y = df[target]
+
         # Preprocessing pipeline
         numeric_transformer = Pipeline(steps=[
-            ('imputer', SimpleImputer(strategy='median')),
+            ('imputer', SimpleImputer(strategy='median'))
         ])
-        
+
         categorical_transformer = Pipeline(steps=[
             ('imputer', SimpleImputer(strategy='most_frequent')),
             ('onehot', OneHotEncoder(handle_unknown='ignore'))
         ])
-        
-        preprocessor = ColumnTransformer(
-            transformers=[
-                ('num', numeric_transformer, numerical_features),
-                ('cat', categorical_transformer, categorical_features)
-            ])
-        
-        # Create and train model pipeline
+
+        preprocessor = ColumnTransformer(transformers=[
+            ('num', numeric_transformer, numerical_features),
+            ('cat', categorical_transformer, categorical_features)
+        ])
+
+        # Model pipeline
         model = Pipeline(steps=[
             ('preprocessor', preprocessor),
             ('regressor', LinearRegression())
         ])
-        
-        # Split data - first drop rows where target is missing
-        df = df.dropna(subset=[target])
-        X = df[categorical_features + numerical_features]
-        y = df[target]
-        
+
         # Split data
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y, 
-            test_size=0.2, 
-            random_state=42
+            X, y, test_size=0.2, random_state=42
         )
-        
+
         # Train model
         model.fit(X_train, y_train)
-        
-        # Evaluate model
+
+        # Evaluate
         y_pred = model.predict(X_test)
         mse = mean_squared_error(y_test, y_pred)
         rmse = np.sqrt(mse)
         r2 = r2_score(y_test, y_pred)
-        
+
         logging.info(f"Model evaluation metrics:")
         logging.info(f"RMSE: {rmse:.2f}")
         logging.info(f"R2 Score: {r2:.2f}")
-        
+
         # Save model
         model_path = os.path.join(MODELS_DIR, 'rental_price_predictor.pkl')
         joblib.dump(model, model_path)
         logging.info(f"Model saved to {model_path}")
-        
-        # Save evaluation metrics
+
+        # Save metrics
         metrics = {
             'rmse': rmse,
             'r2': r2,
             'features_used': categorical_features + numerical_features,
-            'target': target
+            'target': target,
+            'note': 'Model uses all specified categorical variables plus ACTUAL_AREA to predict annual rental price'
         }
         joblib.dump(metrics, os.path.join(MODELS_DIR, 'model_metrics.pkl'))
-        
+
         return model_path
-        
+
     except Exception as e:
         logging.error(f"❌ Model training failed: {str(e)}")
         send_email_alert(
