@@ -62,10 +62,9 @@ The main ETL script (dubai_rental_data_pipeline.py) includes a custom send_email
 - Provides timely updates without manual monitoring.
 
 # ⏰ Task Automation (Windows task Scheduler):
-
 The ETL pipeline is automated via Windows Task Scheduler by running the included batch file run_dubai_etl.bat. This batch file executes the ETL Python script with the proper environment setup.
 
-_Example command to create the scheduled task (run in Command Prompt):_
+-  _Example command to create the scheduled task (run in Command Prompt):_
 
 "C:\Users\mzuba> schtasks /create /tn "RunDubaiETL" /tr "C:\Users\mzuba\Desktop\Final-project-BI-EUBS\dubai_rental_analysis\run_dubai_etl.bat" /sc daily /st 03:00"
 
@@ -73,20 +72,17 @@ _SUCCESS: The scheduled task "RunDubaiETL" has successfully been created.
 _
 
 # 📊 Dashboard Insights
-Average rental prices by property type
-
-Trends in price per square foot
-
-Distribution of rents by number of bedrooms
-
-Area-wise price comparison
+- Average rental prices by property type
+- Trends in price per square foot
+- Distribution of rents by number of bedrooms
+- Area-wise price comparison
 
 **Power BI Online Dashboard**
-Explore the live Power BI report here:
+- Explore the live Power BI report here:
 [Dubai Rental Market Dashboard](https://app.powerbi.com/groups/me/reports/e672daf5-9c9a-4f22-9c60-21eb59c02eaf/b3d063ecaf3c5e7e7ae6?experience=power-bi&bookmarkGuid=aa5db85f-ec2e-439a-85e0-1efef012e956)
 
 **Streamlit Predictive Modeling**
-For interactive exploration and rental price forecasting, visit the Streamlit app:
+- For interactive exploration and rental price forecasting, visit the Streamlit app:
 [Dubai Rental Predictive Model](https://zubair-meo-dubai-rental-analysis-app-stpcbn.streamlit.app/)
 
 # 🚀 Getting Started
