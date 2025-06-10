@@ -75,7 +75,14 @@ The ETL pipeline is automated via Windows Task Scheduler by running the included
 "C:\Users\mzuba> schtasks /create /tn "RunDubaiETL" /tr "C:\Users\mzuba\Desktop\Final-project-BI-EUBS\dubai_rental_analysis\run_dubai_etl.bat" /sc daily /st 03:00"
 
 _SUCCESS: The scheduled task "RunDubaiETL" has successfully been created.
+
+
 _
+
+using corn job for  8 pm todat:
+
+![image](https://github.com/user-attachments/assets/5ddc0f7a-b000-49f0-b3eb-48362870fb28)
+
 
 # 📊 Dashboard Insights
 - Average rental prices by property type
