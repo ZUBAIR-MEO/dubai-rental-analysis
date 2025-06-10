@@ -1,13 +1,13 @@
-#Dubai Rental Analysis ETL Pipeline
+**Dubai Rental Analysis ETL Pipeline**
 This project demonstrates a complete end-to-end ETL (Extract, Transform, Load) pipeline designed to collect, clean, store, and visualize real estate rental data in Dubai. It leverages open-source tools such as PostgreSQL, Python, Power BI, and Streamlit to provide actionable insights into Dubai's rental market.
 
-🛠️ Project Overview
+**🛠️ Project Overview**
 The ETL pipeline performs the following tasks:
 
-Data Source
+*Data Source*
 Raw rental data is sourced from an open dataset (CSV format) containing listings for Dubai's real estate market.
 
-Data Cleaning & Transformation
+*Data Cleaning & Transformation*
 Implemented within the single ETL script dubai_rental_data_pipeline.py using Python and Pandas to:
 
 Extract data from CSV
@@ -21,21 +21,21 @@ Filter and standardize column values
 Data Storage
 Cleaned data is stored in a PostgreSQL database with a well-defined schema.
 
-Workflow Scheduling
+*Workflow Scheduling*
 The entire ETL process is automated with Windows Task Scheduler running a .bat file included in the repository:
 
 Triggers daily execution of the pipeline
 
 Runs automatically without user intervention
 
-Email Notifications
+*Email Notifications*
 Python-based email alert system:
 
 Sends success/failure notifications using Gmail SMTP with SSL
 
 Reads credentials securely from the .env configuration file
 
-Data Visualization
+*Data Visualization*
 Power BI online dashboard offers deep insights into:
 
 Pricing trends
@@ -46,7 +46,7 @@ Regional comparisons within Dubai
 
 Additionally, a Streamlit dashboard is available for interactive web-based visualization, including predictive modeling of rental prices.
 
-📁 Project Structure
+*📁 Project Structure*
 bash
 Copy
 Edit
