@@ -116,38 +116,25 @@ Dubai Rental Predictive Model
 🚀 Getting Started
 Clone the repository:
 
-bash
-Copy
-Edit
 git clone https://github.com/yourusername/Final-project-BI-EUBS.git
 cd Final-project-BI-EUBS
 Create and activate a virtual environment:
 
-bash
-Copy
-Edit
 python -m venv venv
 # On Windows
 venv\Scripts\activate
-# On Mac/Linux
-source venv/bin/activate
-Install required Python packages:
 
-bash
-Copy
-Edit
 pip install -r requirements.txt
 Create and configure your .env file based on the template above.
 
-Run the ETL pipeline manually or via the batch file:
+**Run the ETL pipeline manually or via the batch file:**
 
-bash
-Copy
-Edit
 python dubai_rental_analysis/dubai_rental_data_pipeline.py
 # or
 dubai_rental_analysis\run_dubai_etl.bat
-🧱 Optional Enhancements
+
+
+**🧱 Optional Enhancements**
 Built-in email alert system (already included)
 
 Web dashboard (Streamlit) for real-time data interaction and predictive modeling
