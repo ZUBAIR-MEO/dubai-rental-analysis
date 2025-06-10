@@ -42,12 +42,12 @@ Additionally, a Streamlit dashboard is available for interactive web-based visua
 
 # ⚙️ Technologies used:
 
-> Python (Pandas, psycopg2, dotenv)
-> PostgreSQL
-> Windows Task Scheduler
-> Power BI (desktop & online)
-> Streamlit (interactive dashboard & predictive modeling)
-> SMTP (Gmail) for Email Notifications
+- Python (Pandas, psycopg2, dotenv)
+- PostgreSQL
+- Windows Task Scheduler
+- Power BI (desktop & online)
+- Streamlit (interactive dashboard & predictive modeling)
+- SMTP (Gmail) for Email Notifications
 
 # 🔐 Environment Configuration (.env)
 ![image](https://github.com/user-attachments/assets/a5bdba2d-cd00-4968-acc9-5ddb511f4013)
