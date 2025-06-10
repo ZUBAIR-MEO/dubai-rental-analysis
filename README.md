@@ -114,32 +114,8 @@ For interactive exploration and rental price forecasting, visit the Streamlit ap
 [Dubai Rental Predictive Model](https://zubair-meo-dubai-rental-analysis-app-stpcbn.streamlit.app/)
 
 # 🚀 Getting Started
-Clone the repository:
 
-git clone https://github.com/yourusername/Final-project-BI-EUBS.git
-cd Final-project-BI-EUBS
-Create and activate a virtual environment:
+![image](https://github.com/user-attachments/assets/f293ce2b-73f8-4f59-997c-d701430f505d)
 
-python -m venv venv
-# On Windows
-venv\Scripts\activate
+![image](https://github.com/user-attachments/assets/c4fa67dd-ac68-4873-9d85-5f58237f5acc)
 
-pip install -r requirements.txt
-Create and configure your .env file based on the template above.
-
-# Run the ETL pipeline manually or via the batch file:
-
-python dubai_rental_analysis/dubai_rental_data_pipeline.py
-or
-dubai_rental_analysis\run_dubai_etl.bat
-
-
-# 🧱 Optional Enhancements
-Built-in email alert system (already included)
-
-Web dashboard (Streamlit) for real-time data interaction and predictive modeling
-
-Advanced predictive modeling for rental price forecasting
-
-📌 License
-This project is open-source and available under the MIT License.
