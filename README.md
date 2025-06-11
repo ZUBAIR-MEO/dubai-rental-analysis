@@ -97,7 +97,7 @@ using corn job for  8 pm todat:
 
 **Streamlit Predictive Modeling**
 - For interactive exploration and rental price forecasting, visit the Streamlit app:
-https://dubai-rental-analysis-5asjonqt6ho6uqxysrzrst.streamlit.app/
+[https://dubai-rental-analysis-5asjonqt6ho6uqxysrzrst.streamlit.app/](https://zubair-meo-dubai-rental-analysis-app-stpcbn.streamlit.app/)
 
 # 🚀 Getting Started
 
