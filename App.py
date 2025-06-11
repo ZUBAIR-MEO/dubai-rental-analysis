@@ -1,10 +1,7 @@
 import streamlit as st
 import pandas as pd
-import pickle
 import joblib
-
-
-
+import numpy as np
 
 # Load the trained model
 model = joblib.load("rental_price_predictor.pkl")
@@ -12,38 +9,51 @@ model = joblib.load("rental_price_predictor.pkl")
 st.title("🏠 Rental Price Prediction App")
 st.write("Enter the details of the property to predict its monthly rent and rent per square foot.")
 
-# Example feature inputs — update according to your model features
-# Replace or expand this list based on your model input features
-area_sqft = st.number_input("Area (sq. ft)", min_value=100, max_value=10000, value=1000)
+# Input fields with no default value and full range
+area_sqft = st.number_input("Area (sq. ft)", 
+                           value=None,  # No default value
+                           min_value=-np.inf, 
+                           max_value=np.inf,
+                           step=1.0,
+                           format="%f",
+                           placeholder="Enter area in square feet")
+
 bedrooms = st.selectbox("Bedrooms", [1, 2, 3, 4, 5])
 bathrooms = st.selectbox("Bathrooms", [1, 2, 3, 4])
-location = st.selectbox("Location", ['Downtown', 'Marina', 'Jumeirah', 'Business Bay'])  # update as needed
+location = st.selectbox("Location", ['Downtown', 'Marina', 'Jumeirah', 'Business Bay'])
 furnished = st.selectbox("Furnishing", ['Furnished', 'Unfurnished', 'Semi-Furnished'])
 
-# Create input DataFrame — match this with your model's expected input schema
-input_data = pd.DataFrame({
-    'area_sqft': [area_sqft],
-    'bedrooms': [bedrooms],
-    'bathrooms': [bathrooms],
-    'location': [location],
-    'furnishing': [furnished]
-})
+# Create input DataFrame only when area is provided
+if area_sqft is not None:
+    input_data = pd.DataFrame({
+        'area_sqft': [area_sqft],
+        'bedrooms': [bedrooms],
+        'bathrooms': [bathrooms],
+        'location': [location],
+        'furnishing': [furnished]
+    })
 
-# Handle categorical encoding if needed (adjust based on how the model was trained)
-# If you used one-hot or label encoding during training, replicate that here
-# For example, if you used pandas.get_dummies() during training:
-input_data = pd.get_dummies(input_data)
+    # One-hot encode categorical variables
+    input_data = pd.get_dummies(input_data)
 
-# Align input data with model features (in case some dummies are missing)
-model_features = model.feature_names_in_
-for col in model_features:
-    if col not in input_data.columns:
-        input_data[col] = 0
-input_data = input_data[model_features]
+    # Align input data with model features
+    model_features = model.feature_names_in_
+    for col in model_features:
+        if col not in input_data.columns:
+            input_data[col] = 0
+    input_data = input_data[model_features]
 
-# Predict
+# Predict with validation
 if st.button("Predict Rent"):
-    predicted_rent = model.predict(input_data)[0]
-    rent_per_sqft = predicted_rent / area_sqft
-    st.success(f"🏢 Estimated Monthly Rent: AED {predicted_rent:,.2f}")
-    st.info(f"📏 Rent per sq. ft: AED {rent_per_sqft:.2f}")
+    if area_sqft is None:
+        st.error("Please enter the area")
+    elif area_sqft <= 0:
+        st.error("Area must be a positive number")
+    else:
+        try:
+            predicted_rent = model.predict(input_data)[0]
+            rent_per_sqft = predicted_rent / area_sqft
+            st.success(f"🏢 Estimated Monthly Rent: AED {predicted_rent:,.2f}")
+            st.info(f"📏 Rent per sq. ft: AED {rent_per_sqft:.2f}")
+        except Exception as e:
+            st.error(f"Error in prediction: {str(e)}")
