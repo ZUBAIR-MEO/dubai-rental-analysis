@@ -3,13 +3,12 @@ import joblib
 import pickle
 import numpy as np
 import os
-print(os.getcwd())  # Check current working directory
-os.chdir('https://github.com/ZUBAIR-MEO/dubai-rental-analysis')  # Change to the repository's root directory
+
 
 
 # Simpler paths for Streamlit Cloud
-MODEL_PATH = os.path.join("models", "rental_price_predictor.pkl")
-METRICS_PATH = os.path.join("models", "model_metrics.pkl")
+MODEL_PATH = os.path.join("rental_price_predictor.pkl")
+METRICS_PATH = os.path.join("model_metrics.pkl")
 
 # Load model
 try:
