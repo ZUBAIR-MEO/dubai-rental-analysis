@@ -1,55 +1,49 @@
-# app.py
 import streamlit as st
 import pandas as pd
+import pickle
 import joblib
-import os
 
-# Set page config FIRST
-st.set_page_config(page_title="Dubai Rent Predictor", layout="centered")
 
-# Load the trained model and metrics
-MODEL_PATH = 'rental_price_predictor.pkl'
-METRICS_PATH = 'model_metrics.pkl'
 
-@st.cache_resource
-def load_model():
-    return joblib.load(MODEL_PATH)
 
-model = load_model()
+# Load the trained model
+model = joblib.load("models/rental_price_predictor.pkl")
 
-# App UI
-st.title("🏢 Dubai Rental Price Predictor")
-st.write("🔍 Predict estimated **rent per square foot (AED/sqft)** for a property based on key features.")
+st.title("🏠 Rental Price Prediction App")
+st.write("Enter the details of the property to predict its monthly rent and rent per square foot.")
 
-# Input fields
-version = st.selectbox("Project Version", ['Completed', 'Under Construction'])
-area = st.selectbox("Area", ['Downtown Dubai', 'Dubai Marina', 'Business Bay', 'JVC', 'Palm Jumeirah'])  # Adjust as needed
-prop_type = st.selectbox("Property Type", ['Apartment', 'Villa'])
-sub_type = st.selectbox("Property Sub-Type", ['Studio', '1BR', '2BR', '3BR', 'Penthouse'])  # Simplified
+# Example feature inputs — update according to your model features
+# Replace or expand this list based on your model input features
+area_sqft = st.number_input("Area (sq. ft)", min_value=100, max_value=10000, value=1000)
+bedrooms = st.selectbox("Bedrooms", [1, 2, 3, 4, 5])
+bathrooms = st.selectbox("Bathrooms", [1, 2, 3, 4])
+location = st.selectbox("Location", ['Downtown', 'Marina', 'Jumeirah', 'Business Bay'])  # update as needed
+furnished = st.selectbox("Furnishing", ['Furnished', 'Unfurnished', 'Semi-Furnished'])
 
-rooms = st.slider("Number of Rooms", min_value=1, max_value=10, value=2)
-parking = st.slider("Parking Spaces", min_value=0, max_value=5, value=1)
+# Create input DataFrame — match this with your model's expected input schema
+input_data = pd.DataFrame({
+    'area_sqft': [area_sqft],
+    'bedrooms': [bedrooms],
+    'bathrooms': [bathrooms],
+    'location': [location],
+    'furnishing': [furnished]
+})
 
-# Optional area input
-actual_area = st.number_input("Actual Area (sq. ft.)", min_value=0.0, format="%.2f")
+# Handle categorical encoding if needed (adjust based on how the model was trained)
+# If you used one-hot or label encoding during training, replicate that here
+# For example, if you used pandas.get_dummies() during training:
+input_data = pd.get_dummies(input_data)
 
-if st.button("Predict Rent per sq. ft."):
-    try:
-        input_df = pd.DataFrame([{
-            'VERSION_EN': version,
-            'AREA_EN': area,
-            'PROP_TYPE_EN': prop_type,
-            'PROP_SUB_TYPE_EN': sub_type,
-            'ROOMS': rooms,
-            'PARKING': parking
-        }])
+# Align input data with model features (in case some dummies are missing)
+model_features = model.feature_names_in_
+for col in model_features:
+    if col not in input_data.columns:
+        input_data[col] = 0
+input_data = input_data[model_features]
 
-        rent_per_sqft = model.predict(input_df)[0]
-        st.success(f"🏷️ Predicted Rent: **AED {rent_per_sqft:.2f}/sq. ft.**")
-
-        if actual_area > 0:
-            total_rent = rent_per_sqft * actual_area
-            st.info(f"💰 Estimated Total Annual Rent: **AED {total_rent:,.2f}**")
-
-    except Exception as e:
-        st.error(f"Prediction failed: {str(e)}")
+# Predict
+if st.button("Predict Rent"):
+    predicted_rent = model.predict(input_data)[0]
+    rent_per_sqft = predicted_rent / area_sqft
+    st.success(f"🏢 Estimated Monthly Rent: AED {predicted_rent:,.2f}")
+    st.info(f"📏 Rent per sq. ft: AED {rent_per_sqft:.2f}")
