@@ -7,25 +7,30 @@ import numpy as np
 # -----------------------------
 # Define Paths Relative to App
 # -----------------------------
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "rental_price_predictor.pkl")
-METRICS_PATH = os.path.join(BASE_DIR, "..", "models", "model_metrics.pkl")
+import streamlit as st
+import joblib
+import pickle
+import os
 
-# -----------------------------
-# Load Model and Metrics
-# -----------------------------
+# Simpler paths for Streamlit Cloud
+MODEL_PATH = os.path.join("models", "rental_price_predictor.pkl")
+METRICS_PATH = os.path.join("models", "model_metrics.pkl")
+
+# Load model
 try:
     model = joblib.load(MODEL_PATH)
 except FileNotFoundError:
-    st.error(f"Model file not found at {MODEL_PATH}")
+    st.error(f"❌ Model file not found at `{MODEL_PATH}`. Make sure it is in your GitHub repo.")
     st.stop()
 
+# Load metrics
 try:
     with open(METRICS_PATH, "rb") as f:
         metrics = pickle.load(f)
 except FileNotFoundError:
-    st.warning("Metrics file not found. Model performance info unavailable.")
+    st.warning("⚠️ Metrics file not found.")
     metrics = {}
+
 
 # -----------------------------
 # Streamlit Page Configuration
