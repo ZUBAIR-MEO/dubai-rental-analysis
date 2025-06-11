@@ -1,59 +1,75 @@
 import streamlit as st
-import pandas as pd
 import joblib
+import pickle
+import os
 import numpy as np
 
-# Load the trained model
-model = joblib.load("rental_price_predictor.pkl")
+# --- Load model and metrics safely ---
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "rental_price_predictor.pkl")
+METRICS_PATH = os.path.join(BASE_DIR, "..", "models", "model_metrics.pkl")
 
-st.title("🏠 Rental Price Prediction App")
-st.write("Enter the details of the property to predict its monthly rent and rent per square foot.")
+# Load model
+model = joblib.load(MODEL_PATH)
 
-# Input fields with no default value and full range
-area_sqft = st.number_input("Area (sq. ft)", 
-                           value=None,  # No default value
-                           min_value=-np.inf, 
-                           max_value=np.inf,
-                           step=1.0,
-                           format="%f",
-                           placeholder="Enter area in square feet")
+# Load metrics
+with open(METRICS_PATH, "rb") as f:
+    metrics = pickle.load(f)
 
-bedrooms = st.selectbox("Bedrooms", [1, 2, 3, 4, 5])
-bathrooms = st.selectbox("Bathrooms", [1, 2, 3, 4])
-location = st.selectbox("Location", ['Downtown', 'Marina', 'Jumeirah', 'Business Bay'])
-furnished = st.selectbox("Furnishing", ['Furnished', 'Unfurnished', 'Semi-Furnished'])
+# --- App Title ---
+st.set_page_config(page_title="Dubai Rental Predictor", layout="centered")
+st.title("🏠 Dubai Rental Price Prediction App")
 
-# Create input DataFrame only when area is provided
-if area_sqft is not None:
-    input_data = pd.DataFrame({
-        'area_sqft': [area_sqft],
-        'bedrooms': [bedrooms],
-        'bathrooms': [bathrooms],
-        'location': [location],
-        'furnishing': [furnished]
-    })
+st.markdown("Enter the property details below to predict the estimated **monthly rental price** and **rent per square foot**.")
 
-    # One-hot encode categorical variables
-    input_data = pd.get_dummies(input_data)
+# --- Input Fields ---
+col1, col2 = st.columns(2)
 
-    # Align input data with model features
-    model_features = model.feature_names_in_
-    for col in model_features:
-        if col not in input_data.columns:
-            input_data[col] = 0
-    input_data = input_data[model_features]
+with col1:
+    area_sqft = st.number_input("Area (sq. ft)", min_value=100, max_value=20000, value=1200)
+    bedrooms = st.selectbox("Bedrooms", [1, 2, 3, 4, 5])
+    bathrooms = st.selectbox("Bathrooms", [1, 2, 3, 4])
 
-# Predict with validation
-if st.button("Predict Rent"):
-    if area_sqft is None:
-        st.error("Please enter the area")
-    elif area_sqft <= 0:
-        st.error("Area must be a positive number")
-    else:
-        try:
-            predicted_rent = model.predict(input_data)[0]
-            rent_per_sqft = predicted_rent / area_sqft
-            st.success(f"🏢 Estimated Monthly Rent: AED {predicted_rent:,.2f}")
-            st.info(f"📏 Rent per sq. ft: AED {rent_per_sqft:.2f}")
-        except Exception as e:
-            st.error(f"Error in prediction: {str(e)}")
+with col2:
+    furnishing = st.selectbox("Furnishing", ["Furnished", "Unfurnished", "Partly Furnished"])
+    property_type = st.selectbox("Property Type", ["Apartment", "Villa", "Townhouse"])
+    location = st.selectbox("Location", ["Downtown", "Marina", "JVC", "Business Bay", "Palm Jumeirah"])
+
+# --- Convert inputs to features ---
+def preprocess_input(area, bed, bath, furnish, prop_type, loc):
+    # This assumes your model uses one-hot encoding or similar preprocessing
+    input_dict = {
+        'area': area,
+        'bedrooms': bed,
+        'bathrooms': bath,
+        'furnishing': furnish,
+        'property_type': prop_type,
+        'location': loc
+    }
+    return input_dict
+
+# --- Predict Button ---
+if st.button("🔮 Predict Rental Price"):
+    input_features = preprocess_input(area_sqft, bedrooms, bathrooms, furnishing, property_type, location)
+    
+    # Convert input to the format your model expects
+    # You may need to use a transformer or preprocessor from training
+    try:
+        # If model includes preprocessing inside pipeline
+        prediction = model.predict([list(input_features.values())])[0]
+    except Exception as e:
+        st.error(f"Error during prediction: {e}")
+        st.stop()
+
+    rent_per_sqft = prediction / area_sqft
+
+    st.success(f"📦 Estimated Monthly Rent: **AED {prediction:,.2f}**")
+    st.info(f"📐 Rent per Sq. Ft: **AED {rent_per_sqft:.2f}**")
+
+# --- Sidebar: Model Info ---
+st.sidebar.header("📊 Model Performance")
+st.sidebar.markdown(f"**R² Score**: {metrics.get('r2', 'N/A'):.2f}")
+st.sidebar.markdown(f"**RMSE**: {metrics.get('rmse', 'N/A'):.2f}")
+st.sidebar.markdown("---")
+st.sidebar.markdown("Model powered by joblib & trained using historical Dubai rental listings.")
+
