@@ -1,16 +1,11 @@
 import streamlit as st
 import joblib
 import pickle
-import os
 import numpy as np
-
-# -----------------------------
-# Define Paths Relative to App
-# -----------------------------
-import streamlit as st
-import joblib
-import pickle
 import os
+print(os.getcwd())  # Check current working directory
+os.chdir('https://github.com/ZUBAIR-MEO/dubai-rental-analysis')  # Change to the repository's root directory
+
 
 # Simpler paths for Streamlit Cloud
 MODEL_PATH = os.path.join("models", "rental_price_predictor.pkl")
