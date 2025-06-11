@@ -7,7 +7,7 @@ import joblib
 
 
 # Load the trained model
-model = joblib.load("models/rental_price_predictor.pkl")
+model = joblib.load("rental_price_predictor.pkl")
 
 st.title("🏠 Rental Price Prediction App")
 st.write("Enter the details of the property to predict its monthly rent and rent per square foot.")
